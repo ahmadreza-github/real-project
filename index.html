@@ -11,12 +11,14 @@
             padding: 0;
             font-family: 'Tahoma', 'Arial', sans-serif;
         }
+
         body {
             direction: rtl;
             background-color: #f5f7fb;
             color: #333;
             line-height: 1.6;
         }
+
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -25,6 +27,7 @@
             display: flex;
             flex-direction: column;
         }
+
         .header {
             text-align: center;
             padding: 15px 0;
@@ -33,14 +36,17 @@
             background-color: #e8f5e9;
             border-radius: 12px;
         }
+
         .header h1 {
             color: #2e7d32;
             font-size: 1.8rem;
         }
+
         .header p {
             color: #33691e;
             font-size: 1rem;
         }
+
         .chat-container {
             flex: 1;
             overflow-y: auto;
@@ -52,11 +58,13 @@
             background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 75C63.8071 75 75 63.8071 75 50C75 36.1929 63.8071 25 50 25C36.1929 25 25 36.1929 25 50C25 63.8071 36.1929 75 50 75Z' fill='%23ffeb3b10'/%3E%3C/svg%3E");
             background-repeat: repeat;
         }
+
         .message {
             margin-bottom: 15px;
             display: flex;
             align-items: flex-start;
         }
+
         .message-content {
             max-width: 80%;
             padding: 12px 15px;
@@ -67,18 +75,27 @@
             margin-left: 10px;
             white-space: pre-wrap;
         }
-        .user { justify-content: flex-end; }
-        .bot  { justify-content: flex-start; }
+
+        .user {
+            justify-content: flex-end;
+        }
+
+        .bot {
+            justify-content: flex-start;
+        }
+
         .user .message-content {
             background-color: #e3f2fd;
             color: #0d47a1;
             border-bottom-left-radius: 5px;
         }
+
         .bot .message-content {
             background-color: #f0f4c3;
             color: #33691e;
             border-bottom-right-radius: 5px;
         }
+
         .avatar {
             width: 40px;
             height: 40px;
@@ -91,16 +108,22 @@
             background-size: cover;
             background-position: center;
         }
+
         .bot .avatar {
             background-color: #4caf50;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%234caf50'/%3E%3Ccircle cx='36' cy='40' r='6' fill='white'/%3E%3Ccircle cx='64' cy='40' r='6' fill='white'/%3E%3Cpath d='M35,65 Q50,80 65,65' stroke='white' stroke-width='4' fill='none'/%3E%3C/svg%3E");
         }
+
         .user .avatar {
             background-color: #2196f3;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%232196f3'/%3E%3Ccircle cx='36' cy='40' r='6' fill='white'/%3E%3Ccircle cx='64' cy='40' r='6' fill='white'/%3E%3Cpath d='M35,60 Q50,70 65,60' stroke='white' stroke-width='4' fill='none'/%3E%3C/svg%3E");
         }
+
         .input-container {
             display: flex;
             position: relative;
         }
+
         #message-input {
             flex: 1;
             padding: 12px 50px 12px 15px;
@@ -110,9 +133,11 @@
             outline: none;
             transition: border-color 0.3s;
         }
+
         #message-input:focus {
             border-color: #4a6fa5;
         }
+
         #send-button {
             position: absolute;
             left: 8px;
@@ -129,93 +154,170 @@
             justify-content: center;
             transition: background-color 0.3s;
         }
-        #send-button:hover { background-color: #388e3c; }
+
+        #send-button:hover {
+            background-color: #388e3c;
+        }
+
         .typing-indicator {
             display: none;
             padding: 10px;
             margin-bottom: 15px;
         }
+
         .typing-indicator span {
-            height: 8px; width: 8px;
+            height: 8px;
+            width: 8px;
             background-color: #4caf50;
             border-radius: 50%;
             display: inline-block;
             margin: 0 2px;
             animation: bounce 1.4s infinite ease-in-out;
         }
-        @keyframes bounce {
-            0%, 80%, 100% { transform: translateY(0); }
-            40%          { transform: translateY(-8px); }
+
+        .typing-indicator span:nth-child(1) {
+            animation-delay: 0s;
         }
+
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes bounce {
+            0%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-8px);
+            }
+        }
+
         .highlight {
             background-color: #fff59d;
             padding: 2px;
             border-radius: 3px;
         }
-        @media (max-width: 600px) {
-            .container { padding: 10px; }
-            .message-content { max-width: 90%; font-size: 14px; }
-            .header h1      { font-size: 1.5rem; }
+
+        /* Scrollbar styling */
+        .chat-container::-webkit-scrollbar {
+            width: 6px;
         }
+
+        .chat-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .chat-container::-webkit-scrollbar-thumb {
+            background: #c1d3f3;
+            border-radius: 3px;
+        }
+
+        .chat-container::-webkit-scrollbar-thumb:hover {
+            background: #a1b8e2;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .message-content {
+                max-width: 90%;
+                font-size: 14px;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Animation for plants growing */
         @keyframes grow {
-            0%   { transform: scale(0.95); }
+            0% { transform: scale(0.95); }
             100% { transform: scale(1); }
         }
-        .growing     { animation: grow 2s ease-in-out infinite alternate; }
-        .plant-emoji { font-size: 20px; margin: 0 3px; display: inline-block; vertical-align: middle; }
+
+        .growing {
+            animation: grow 2s ease-in-out infinite alternate;
+        }
+
+        .plant-emoji {
+            font-size: 20px;
+            margin: 0 3px;
+            display: inline-block;
+            vertical-align: middle;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h1>کلاس علوم: بکارید و بخورید</h1>
-            <p>
-                <span class="plant-emoji growing">🌱</span>
-                آزمایش رشد گل آفتابگردان
-                <span class="plant-emoji growing">🌻</span>
-            </p>
+            <p><span class="plant-emoji growing">🌱</span> آزمایش رشد گل آفتابگردان <span class="plant-emoji growing">🌻</span></p>
         </div>
+        
         <div class="chat-container" id="chat-container">
             <div class="message bot">
                 <div class="avatar"></div>
                 <div class="message-content">
-                    سلام دانشمند کوچک کلاس پنجمی! 👋 من معلم علوم شما هستم و خیلی خوشحالم که امروز با آزمایش جالب
-                    <span class="highlight">رشد گل آفتابگردان</span> از درس «بکارید و بخورید» همراه تو هستم!
+                    سلام دانشمند کوچک کلاس پنجمی! 👋 من معلم علوم شما هستم و خیلی خوشحالم که امروز با آزمایش جالب <span class="highlight">رشد گل آفتابگردان</span> از درس «بکارید و بخورید» همراه تو هستم!
+
+چه سوالی درباره‌ی نیازهای رشد گیاه آفتابگردان داری؟ مثلاً می‌خواهی بدانی برای رشد خوب به چه خاکی نیاز داره؟ یا چقدر آب و نور لازم داره؟ من اینجا هستم تا همه چیز رو برات توضیح بدم! 🌱
                 </div>
             </div>
+            
             <div class="typing-indicator" id="typing-indicator">
-                <span></span><span></span><span></span>
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
+        
         <div class="input-container">
             <input type="text" id="message-input" placeholder="سوال خود را بپرسید...">
             <button id="send-button">
-                🡆
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
             </button>
         </div>
     </div>
 
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const chatContainer = document.getElementById('chat-container');
-        const messageInput  = document.getElementById('message-input');
-        const sendButton    = document.getElementById('send-button');
-        const typingIndicator = document.getElementById('typing-indicator');
+        document.addEventListener('DOMContentLoaded', () => {
+            const chatContainer = document.getElementById('chat-container');
+            const messageInput = document.getElementById('message-input');
+            const sendButton = document.getElementById('send-button');
+            const typingIndicator = document.getElementById('typing-indicator');
+            
+            // Groq API configuration
+            const GROQ_API_KEY = "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";
+            const MODEL = "meta-llama/llama-4-maverick-17b-128e-instruct";
 
-        // Groq API configuration
-        const GROQ_API_KEY = "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";
-        const MODEL         = "meta-llama/llama-4-maverick-17b-128e-instruct";
+            // Plant experiment lesson content
+            const lessonContent = `سلام دانشمند کوچک کلاس پنجمی! بیا با هم این آزمایش را که از درس "بکارید و بخورید" کتاب علوم است، قدم به قدم و با جزئیات کامل دنبال کنیم تا دقیقاً بفهمیم یک گیاه کوچولو مثل آفتابگردان برای رشد کردن به چه چیزهایی نیاز دارد.
+اولین و مهم‌ترین قدم، انتخاب یک خانه مناسب برای بذر کوچولوی ماست، یعنی خاک مناسب. فرض کن سه نوع خاک مختلف داریم: یکی خیلی سفت و چسبنده (مثل خاک رس)، یکی خیلی شل (مثل خاک ماسه‌ای) و یکی که مخلوطی از مواد مختلف است و کمی تیره‌تر به نظر می‌رسد (خاک باغچه). گیاه ما برای اینکه خوب رشد کند، به خاکی نیاز دارد که هم بتواند آب را به اندازه کافی در خودش نگه دارد تا ریشه‌هایش تشنه نمانند، هم آنقدر فشرده نباشد که آب اضافی ریشه را خفه کند و هوا به ریشه نرسد، و هم پر از مواد غذایی خوب یا به اصطلاح غنی باشد تا گیاه بتواند قوی شود. خاک باغچه معمولاً همه این ویژگی‌های خوب را دارد: هم آب را به اندازه نگه می‌دارد، هم به ریشه اجازه نفس کشیدن می‌دهد و هم پر از غذای گیاه است. پس ما گلدان خالی‌مان را با همین خاک خوب باغچه پر می‌کنیم، اما یادت باشد خاک را زیاد فشار ندهی تا سفت نشود و هوا در آن بماند.
+حالا که خانه آماده شد، نوبت کاشتن مهمان کوچولوی ما، یعنی بذر گل آفتابگردان است. با انگشت یک سوراخ کوچک در وسط خاک درست می‌کنیم که خیلی عمیق نباشد، شاید فقط به اندازه دو یا سه برابر خود بذر. اگر خیلی عمیق باشد، جوانه زدن سخت می‌شود و اگر خیلی سطحی باشد، ممکن است خشک شود. بذر را آرام داخل سوراخ می‌گذاریم و با ملایمت کمی خاک رویش می‌ریزیم.
+بذر ما برای بیدار شدن و شروع زندگی به آب نیاز دارد! پس با آب‌پاش، به آرامی به خاک آب می‌دهیم. منظور از آب مناسب این است که تمام خاک مرطوب شود، اما نه آنقدر زیاد که گلدان پر از آب شود و خاک به گل تبدیل شود. این آب اولیه، پوسته بذر را نرم می‌کند و به جوانه کمک می‌کند تا راحت‌تر بیرون بیاید.
+گیاهان فقط به خاک و آب نیاز ندارند، آن‌ها به یک منبع انرژی مهم دیگر هم احتیاج دارند: نور کافی! نور خورشید بهترین دوست گیاهان است، چون گیاهان با استفاده از نور، آب و هوایی که نفس می‌کشند، برای خودشان غذا درست می‌کنند (به این کار مهم فتوسنتز می‌گویند). چون ممکن است همیشه نور خورشید مستقیم نباشد، ما از یک چراغ LED استفاده می‌کنیم که نوری شبیه به نور خورشید تولید می‌کند. گلدان را جایی می‌گذاریم که این نور به خوبی به گیاه بتابد، چون آفتابگردان برای رشد قوی به چندین ساعت نور در روز نیاز دارد.
+با داشتن خاک خوب، آب اولیه و نور، باید کمی صبور باشیم. اگر خاک را مرطوب نگه داریم (هر وقت سطحش کمی خشک شد، دوباره کمی آب بدهیم)، به زودی شاهد یک اتفاق شگفت‌انگیز خواهیم بود: یک جوانه سبز و کوچک از دل خاک بیرون می‌زند! این یعنی بذر ما زنده شده، ریشه‌اش به دنبال آب و غذا به پایین رفته و ساقه‌اش به دنبال نور به سمت بالا آمده است.
+وقتی جوانه کمی بزرگتر شد و چند برگ درآورد، ممکن است یک روز ببینیم که برگ‌هایش کمی بی‌حال و پژمرده شده‌اند. نگران نباش! این فقط یک معنی دارد: گیاه ما دوباره تشنه شده است! گیاهان دائماً از طریق ریشه‌هایشان آب را از خاک جذب می‌کنند و به ساقه و برگ‌ها می‌فرستند. پس وقتی پژمرده می‌شود، یعنی آب داخل خاک کم شده است. دوباره با آب‌پاش و به مقدار مناسب (یادت هست؟ مرطوب، نه خیس!) به آن آب می‌دهیم و می‌بینیم که چطور دوباره سرحال می‌شود.
+با ادامه این مراقبت‌ها، یعنی داشتن خاک غنی، دادن آب مناسب هر وقت که گیاه تشنه می‌شود، و تامین نور کافی، گیاه ما روز به روز بزرگتر، قوی‌تر و پربرگ‌تر می‌شود. بعد از مدتی، یک غنچه کوچک و بسته در بالای ساقه ظاهر می‌شود. این غنچه، گل زیبای آینده ماست!
+گیاه برای باز کردن غنچه‌اش هم به آب نیاز دارد. پس باز هم ممکن است علائم پژمردگی را ببینیم و لازم باشد دوباره به آن آب مناسب بدهیم. با رسیدن آب و نور کافی، غنچه کم‌کم باز می‌شود و گلبرگ‌های زرد و زیبای آفتابگردان خودشان را نشان می‌دهند!
+حتی وقتی گل باز شده، کار ما تمام نشده است. گیاه هنوز زنده است و برای شاداب ماندن و کامل شدن گلش، به آب نیاز دارد. در آزمایش تو، این اتفاق پژمرده شدن و آب دادن چند بار دیگر (تا پنج مرتبه آب‌یاری کلی) تکرار می‌شود. هر بار که گیاه پژمرده می‌شود، با دادن آب مناسب به آن کمک می‌کنیم تا سرحال بماند و گلش کاملاً رشد کند.و سرانجام، پس از این مراقبت‌ها، گل آفتابگردان ما کاملاً رشد کرده و زیبا و شاداب است! تبریک می‌گویم دانشمند کوشا! تو در این سفر علمی دیدی که برای رشد یک گیاه سالم و زیبا، سه چیز اصلی لازم است: خاک خوب و غنی به عنوان خانه و منبع غذا، آب به اندازه کافی برای رفع تشنگی و انجام کارهای حیاتی، و نور کافی به عنوان منبع انرژی برای غذا سازی. البته نباید هوا را هم فراموش کنیم که برای نفس کشیدن ریشه‌ها و برگ‌ها لازم است. با فراهم کردن این نیازهای اساسی، تو توانستی یک بذر کوچک را به یک گل باشکوه تبدیل کنی و حالا خیلی بهتر می‌دانی که چطور باید از گیاهان مراقبت کرد. آفرین به تو!`;
 
-        // Plant experiment lesson content
-        const lessonContent = `سلام دانشمند کوچک کلاس پنجمی! بیا با هم این آزمایش را که از درس "بکارید و بخورید" کتاب علوم است، قدم به قدم و با جزئیات کامل دنبال کنیم...
-(… بقیه‌ی متن درس به صورت کامل …)`;
+            // Initial system message to set the persona with the provided text
+            const systemMessage = {
+                role: "system",
+                content: `شما یک معلم علوم پایه پنجم دبستان هستید که به زبان فارسی ساده و مناسب سن دانش‌آموزان توضیح می‌دهید. لحن شما بسیار گرم، دوستانه و پر از شور و اشتیاق است. شما مفاهیم علمی را با مثال‌های عینی و ملموس توضیح می‌دهید. 
 
-        // **System message with re‑ordered, translated, and emphasized instructions**
-        const systemMessage = {
-            role: "system",
-            content: `You are a fifth-grade science teacher explaining in simple, age-appropriate Persian with a warm, friendly, enthusiastic tone. You use concrete, relatable examples.
-
-In this conversation, you will teach the "Sunflower Planting and Growth" experiment from the "Plant and Eat" science textbook for fifth graders, based strictly on the provided content:
+در این مکالمه، قرار است درباره آزمایش "کاشت و رشد گل آفتابگردان" از درس "بکارید و بخورید" کتاب علوم پایه پنجم با دانش‌آموزان صحبت کنید. اطلاعات مربوط به این آزمایش در ادامه آمده است که باید بر اساس آن پاسخ دهید:
 
 ${lessonContent}
 
@@ -225,90 +327,135 @@ Important Points:
 3. Use affectionate terms like **"little scientist"**, **"my flower"**, **"my dear friend"**.
 4. Keep your answers **short, simple, and understandable** for a fifth grader.
 5. Use **plant-related emojis** 🌱🌻 to make your responses more engaging.
-6. Emphasize that to grow a sunflower properly, one needs **good soil**, **enough water**, and **adequate light**.`
-        };
+6. Emphasize that to grow a sunflower properly, one needs **good soil**, **enough water**, and **adequate light**`
+            };
 
-        // Chat history
-        let messages = [ systemMessage ];
+            // Chat history
+            let messages = [systemMessage];
 
-        // Initial welcome
-        messages.push({
-            role: "assistant",
-            content: `سلام دانشمند کوچک کلاس پنجمی! 👋 من معلم علوم شما هستم و امروز با آزمایش رشد گل آفتابگردان همراه تو هستم! 🌱`
-        });
+            // Add initial welcome message to messages array
+            const initialMessage = {
+                role: "assistant",
+                content: `سلام دانشمند کوچک کلاس پنجمی! 👋 من معلم علوم شما هستم و خیلی خوشحالم که امروز با آزمایش جالب رشد گل آفتابگردان از درس «بکارید و بخورید» همراه تو هستم!
 
-        function addMessageToChat(text, isUser) {
-            const div = document.createElement('div');
-            div.className = `message ${isUser ? 'user' : 'bot'}`;
-            const avatar = document.createElement('div');
-            avatar.className = 'avatar';
-            const mc = document.createElement('div');
-            mc.className = 'message-content';
-            mc.innerText = text;
-            div.appendChild(avatar);
-            div.appendChild(mc);
-            chatContainer.insertBefore(div, typingIndicator);
-            chatContainer.scrollTop = chatContainer.scrollHeight;
-        }
+  چه سوالی درباره‌ی نیازهای رشد گیاه آفتابگردان داری؟ مثلاً می‌خواهی بدانی برای رشد خوب به چه خاکی نیاز داره؟ یا چقدر آب و نور لازم داره؟پس ازم سوال بپرس . ! 🌱`
+            };
+            
+            messages.push(initialMessage);
 
-        function setTyping(on) {
-            typingIndicator.style.display = on ? 'block' : 'none';
-            if (on) chatContainer.scrollTop = chatContainer.scrollHeight;
-        }
+            // Function to add message to the chat UI
+            function addMessageToChat(content, isUser) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+                
+                const avatar = document.createElement('div');
+                avatar.className = 'avatar';
+                
+                const messageContent = document.createElement('div');
+                messageContent.className = 'message-content';
+                messageContent.innerText = content;
+                
+                messageDiv.appendChild(avatar);
+                messageDiv.appendChild(messageContent);
+                
+                // Insert before typing indicator
+                chatContainer.insertBefore(messageDiv, typingIndicator);
+                
+                // Scroll to bottom
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }
 
-        async function sendMessageToGroq(userText) {
-            setTyping(true);
-            messages.push({ role: "user", content: userText });
-            try {
-                const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${GROQ_API_KEY}`
-                    },
-                    body: JSON.stringify({
-                        model: MODEL,
-                        messages: messages,
-                        temperature: 0.7,
-                        max_tokens: 800,
-                        top_p: 0.95
-                    })
-                });
-                const data = await res.json();
-                if (!res.ok) throw new Error(data.error?.message);
-                let reply = data.choices[0].message.content;
-                if (reply.includes("<think>") && reply.includes("</think>")) {
-                    reply = reply.substring(reply.lastIndexOf("</think>") + 8).trim();
+            // Function to show/hide typing indicator
+            function setTypingIndicator(isVisible) {
+                typingIndicator.style.display = isVisible ? 'block' : 'none';
+                if (isVisible) {
+                    chatContainer.scrollTop = chatContainer.scrollHeight;
                 }
-                messages.push({ role: "assistant", content: reply });
-                addMessageToChat(reply, false);
-            } catch (e) {
-                console.error(e);
-                addMessageToChat("متأسفانه مشکلی پیش آمد. لطفاً دوباره تلاش کن! 🌱", false);
-            } finally {
-                setTyping(false);
             }
-        }
 
-        sendButton.addEventListener('click', () => {
-            const txt = messageInput.value.trim();
-            if (!txt) return;
-            addMessageToChat(txt, true);
-            messageInput.value = '';
-            sendMessageToGroq(txt);
-        });
-
-        messageInput.addEventListener('keypress', e => {
-            if (e.key === 'Enter' && messageInput.value.trim()) {
-                const txt = messageInput.value.trim();
-                addMessageToChat(txt, true);
-                messageInput.value = '';
-                sendMessageToGroq(txt);
+            // Function to send message to Groq API and get response
+            async function sendMessageToGroq(userMessage) {
+                try {
+                    setTypingIndicator(true);
+                    
+                    // Add user message to messages array
+                    messages.push({
+                        role: "user",
+                        content: userMessage
+                    });
+                    
+                    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${GROQ_API_KEY}`
+                        },
+                        body: JSON.stringify({
+                            model: MODEL,
+                            messages: messages,
+                            temperature: 0.7,
+                            max_tokens: 800,
+                            top_p: 0.95
+                        })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (!response.ok) {
+                        throw new Error(data.error?.message || 'خطا در دریافت پاسخ');
+                    }
+                    
+                    // Extract and clean the bot response
+                    let botResponse = data.choices[0].message.content;
+                    
+                    // Check if the response contains <think> tags and remove them
+                    if (botResponse.includes("<think>") && botResponse.includes("</think>")) {
+                        const thinkEndIndex = botResponse.lastIndexOf("</think>") + 8; // 8 is the length of "</think>"
+                        botResponse = botResponse.substring(thinkEndIndex).trim();
+                    }
+                    
+                    // Add bot response to messages array
+                    messages.push({
+                        role: "assistant",
+                        content: botResponse
+                    });
+                    
+                    // Add bot response to chat
+                    addMessageToChat(botResponse, false);
+                } catch (error) {
+                    console.error('Error:', error);
+                    addMessageToChat('متأسفانه در دریافت پاسخ مشکلی پیش آمد. لطفاً دوباره تلاش کنید. 🌱', false);
+                } finally {
+                    setTypingIndicator(false);
+                }
             }
-        });
 
-        messageInput.focus();
-    });
+            // Send message when send button is clicked
+            sendButton.addEventListener('click', () => {
+                const userMessage = messageInput.value.trim();
+                if (userMessage) {
+                    addMessageToChat(userMessage, true);
+                    messageInput.value = '';
+                    sendMessageToGroq(userMessage);
+                }
+            });
+
+            // Send message when Enter key is pressed
+            messageInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    const userMessage = messageInput.value.trim();
+                    if (userMessage) {
+                        addMessageToChat(userMessage, true);
+                        messageInput.value = '';
+                        sendMessageToGroq(userMessage);
+                    }
+                }
+            });
+
+            // Focus on input field when page loads
+            messageInput.focus();
+        });
     </script>
 </body>
 </html>
+
