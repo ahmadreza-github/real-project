@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تقدیر از دکتر محمد حسین داورپور</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+
+    <style>
+        /* --- CSS Variables --- */
+        :root {
+            --font-family-base: 'Vazirmatn', 'Tahoma', 'Arial', sans-serif;
+            --background-color: #f8f9fa; /* Lighter gray */
+            --container-bg: #ffffff;
+            --header-bg: #e0f2f7; /* Light cyan */
+            --header-text: #0077cc; /* Darker cyan */
+            --header-subtitle: #005fa3;
+            --chat-bg: #ffffff;
+            --text-color: #343a40;
+            --border-color: #e9ecef;
+            --input-border-color: #ced4da;
+            --input-focus-border-color: #80bdff;
+            --user-message-bg: #cfe2ff; /* Lighter blue */
+            --user-message-text: #0a58ca; /* Darker blue */
+            --bot-message-bg: #d1e7dd; /* Lighter green */
+            --bot-message-text: #146c43; /* Darker green */
+            --avatar-user-bg: #0d6efd; /* Bootstrap blue */
+            --avatar-bot-bg: #198754; /* Bootstrap green */
+            --button-bg: #198754;
+            --button-hover-bg: #157347;
+            --typing-dot-color: var(--avatar-bot-bg);
+            --highlight-bg: #ffecb3; /* Light yellow for highlight */
+            --highlight-text: #664d03; /* Darker yellow text */
+
+            --border-radius-sm: 0.3rem;
+            --border-radius-md: 0.5rem;
+            --border-radius-lg: 1.2rem; /* Rounded bubbles */
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.07);
+
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+        }
+
+        /* --- General Styles --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 16px; /* Base font size */
+        }
+
+        body {
+            direction: rtl;
+            font-family: var(--font-family-base);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: var(--spacing-sm);
+        }
+
+        /* --- Layout --- */
+        .container {
+            max-width: 800px;
+            width: 100%;
+            height: 95vh; /* Slightly less than 100vh to avoid scroll issues */
+            max-height: 800px; /* Max height */
+            margin: 0 auto;
+            background-color: var(--container-bg);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-md);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; /* Prevent content from spilling */
+        }
+
+        /* --- Header --- */
+        .header {
+            text-align: center;
+            padding: var(--spacing-md) var(--spacing-lg);
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header h1 {
+            color: var(--header-text);
+            font-size: 1.5rem; /* Slightly smaller */
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .header p {
+            color: var(--header-subtitle);
+            font-size: 0.95rem;
+        }
+
+        /* --- Chat Area --- */
+        .chat-container {
+            flex: 1; /* Takes remaining space */
+            overflow-y: auto;
+            padding: var(--spacing-lg);
+            background-color: var(--chat-bg);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md); /* Spacing between messages */
+        }
+
+        /* --- Messages --- */
+        .message {
+            display: flex;
+            align-items: flex-end; /* Align avatar with bottom of bubble */
+            gap: var(--spacing-sm); /* Space between avatar and bubble */
+            max-width: 90%; /* Slightly wider */
+        }
+
+        .message-content {
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--border-radius-lg);
+            font-size: 0.95rem;
+            position: relative;
+            box-shadow: var(--shadow-sm);
+            white-space: pre-wrap; /* Keep line breaks */
+            word-wrap: break-word; /* Break long words */
+        }
+
+        /* Apply specific rounding for tail effect - more subtle */
+        .user {
+            align-self: flex-start; /* Align user messages to the left (in RTL) */
+        }
+         .user .message-content {
+            background-color: var(--user-message-bg);
+            color: var(--user-message-text);
+            border-bottom-left-radius: var(--border-radius-sm); /* Tail points left */
+        }
+         .user .avatar { background-color: var(--avatar-user-bg); }
+
+
+        .bot {
+             align-self: flex-end; /* Align bot messages to the right (in RTL) */
+         }
+        .bot .message-content {
+            background-color: var(--bot-message-bg);
+            color: var(--bot-message-text);
+            border-bottom-right-radius: var(--border-radius-sm); /* Tail points right */
+        }
+        .bot .avatar { background-color: var(--avatar-bot-bg); }
+
+
+        .avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 0.8rem; /* Smaller initial */
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0; /* Prevent avatar from shrinking */
+        }
+
+        /* Highlight style for names/scores */
+        .highlight {
+            background-color: var(--highlight-bg);
+            color: var(--highlight-text);
+            padding: 0.1em 0.4em;
+            border-radius: var(--border-radius-sm);
+            font-weight: 600;
+        }
+
+        /* --- Input Area --- */
+        .input-area {
+            padding: var(--spacing-md);
+            border-top: 1px solid var(--border-color);
+            background-color: var(--container-bg); /* Match container bg */
+        }
+
+        .input-container {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            border: 1px solid var(--input-border-color);
+            border-radius: var(--border-radius-lg); /* Rounded container */
+            padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-xs) var(--spacing-sm); /* Padding inside */
+            transition: border-color 0.3s ease;
+        }
+
+        .input-container:focus-within {
+             border-color: var(--input-focus-border-color);
+             box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Focus ring */
+        }
+
+        #message-input {
+            flex: 1; /* Take available space */
+            border: none;
+            outline: none;
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-size: 1rem;
+            background-color: transparent; /* Inherit background */
+            color: var(--text-color);
+            font-family: var(--font-family-base);
+            resize: none; /* Prevent manual resize */
+            height: auto; /* Allow it to grow slightly if needed */
+            max-height: 100px; /* Limit growth */
+            overflow-y: auto;
+        }
+
+         #send-button {
+             width: 40px;
+             height: 40px;
+             border: none;
+             border-radius: 50%;
+             background-color: var(--button-bg);
+             color: white;
+             cursor: pointer;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             transition: background-color 0.3s ease;
+             flex-shrink: 0; /* Prevent shrinking */
+         }
+
+        #send-button:hover,
+        #send-button:focus {
+            background-color: var(--button-hover-bg);
+            outline: none;
+        }
+
+        #send-button svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* --- Typing Indicator --- */
+        .typing-indicator {
+            display: flex; /* Use flex for alignment */
+            align-items: center;
+            justify-content: center; /* Center dots horizontally */
+            gap: 5px; /* Space between dots */
+            padding: var(--spacing-md) 0;
+            opacity: 0; /* Hidden initially */
+            transition: opacity 0.3s ease;
+            height: 0; /* Collapse when hidden */
+            overflow: hidden;
+        }
+        .typing-indicator.visible {
+             opacity: 1;
+             height: auto; /* Expand when visible */
+        }
+
+        .typing-indicator span {
+            height: 8px;
+            width: 8px;
+            background-color: var(--typing-dot-color);
+            border-radius: 50%;
+            display: inline-block;
+            animation: bounce 1.4s infinite ease-in-out both; /* 'both' keeps state at end */
+        }
+
+        .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1.0); }
+        }
+
+        /* --- Scrollbar Styling (Optional) --- */
+        .chat-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chat-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .chat-container::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 10px;
+        }
+
+        .chat-container::-webkit-scrollbar-thumb:hover {
+            background: #aaa;
+        }
+
+        /* --- Responsiveness --- */
+        @media (max-width: 600px) {
+            html {
+                font-size: 15px; /* Slightly smaller base on mobile */
+            }
+             .container {
+                 height: 100vh; /* Full height on mobile */
+                 max-height: none;
+                 border-radius: 0;
+                 box-shadow: none;
+            }
+             body {
+                 padding: 0;
+             }
+             .chat-container {
+                 padding: var(--spacing-md);
+             }
+             .input-area {
+                 padding: var(--spacing-sm);
+             }
+             .header h1 { font-size: 1.3rem; }
+             .header p { font-size: 0.9rem; }
+             .message-content { font-size: 0.9rem; }
+             #message-input { font-size: 0.95rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>تقدیر از دکتر محمد حسین داورپور</h1>
+            <p>روز معلم مبارک! 🌹</p>
+        </div>
+
+        <div class="chat-container" id="chat-container">
+            <!-- Initial bot message is fetched from API -->
+            <div class="typing-indicator" id="typing-indicator">
+                 <span></span>
+                 <span></span>
+                 <span></span>
+             </div>
+        </div>
+
+        <div class="input-area">
+            <div class="input-container">
+                 <input type="text" id="message-input" placeholder="پاسخ خود را بنویسید..." aria-label="متن پیام" disabled> <!-- Start disabled -->
+                 <button id="send-button" aria-label="ارسال پیام" disabled> <!-- Start disabled -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const chatContainer = document.getElementById('chat-container');
+            const messageInput = document.getElementById('message-input');
+            const sendButton = document.getElementById('send-button');
+            const typingIndicator = document.getElementById('typing-indicator');
+
+            // --- API Config and Student Data ---
+            // !!! هشدار: کلید API خود را در اینجا قرار دهید و آن را در کد سمت کاربر عمومی به اشتراک نگذارید !!!
+            // !!! پیشنهاد می‌شود از یک سرور پراکسی برای امن نگه داشتن کلید خود استفاده کنید !!!
+            const GOOGLE_AI_API_KEY = "AIzaSyCgyww0KcrJibX4p6jeb-lYv1n7UQbM39Q"; // <--- کلید API شما اینجا
+            const GEMINI_MODEL = "gemini-1.5-flash-latest"; // یا مدل دیگری که استفاده می‌کنید
+
+            // --- داده‌های دانشجویان با خاطره به‌روز شده مهدی قدس ---
+            const studentsData = [
+                 { name: "مهدی قدس", memory: `سال 98، پس از رها کردن رشته‌های مهندسی شیمی و مهندسی برق دانشگاه سمنان، وارد رشته مهندسی کامپیوتر دانشگاه آزاد سمنان شدم. در آن زمان، از علاقه‌ام به رشته‌های مختلف مطمئن نبودم. به عنوان شاگرد اول مدرسه و فردی منضبط، در جلسه اول درس مبانی کامپیوتر با دکتر داورپور شرکت کردم. از کودکی به فناوری علاقه‌مند بودم و آرزو داشتم نمایندگی مایکروسافت را در ایران تأسیس کنم. همچنین عاشق گوشی‌های لومیا با سیستم‌عامل Windows Phone بودم. اما هنوز مطمئن نبودم که تصمیم درستی در رها کردن دانشگاه سمنان و پیگیری علاقه‌ام در دانشگاه آزاد سمنان گرفته‌ام یا نه.
+
+تا اینکه کلاس دکتر شروع شد. در جلسه اول، به جز من و دوستم هادی قوام، کسی دیگر در کلاس حضور نداشت. دکتر با سخنانش چنان من را مدهوش و غرق در تفکر کرد که زمان را از دست دادم و با قلبی مطمئن متوجه شدم که مسیر درست زندگی‌ام را پیدا کرده‌ام. به قدری به دکتر در طی این چند سال مدیونم که فکر می‌کنم تا آخر عمر باید شاگردی استاد خود را بکنم و از علم و رفتار گوهربار او کسب دانش کنم.` },
+                 { name: "سید احمدرضا هاشمی", memory: `در روز مصاحبه، با وجود استرس و دلهره‌ی زیادی که تجربه می‌کردم، تمام تلاشم را به کار گرفتم تا آرامش خود را حفظ کرده و با لحنی سنجیده، واضح و همراه با اعتمادبه‌نفس صحبت کنم. سعی داشتم لحنم در عین قاطع بودن، دلنشین و حرفه‌ای باشد تا توانایی‌ام در برقراری ارتباط مؤثر را نشان دهم. همچنین از زبان بدن خود استفاده می‌کردم تا استرس موجود را کاهش داده و تصویری متعادل و مطمئن از خود ارائه دهم.\n\nدر جریان مصاحبه، نکات ارزشمندی از سوی داوران مطرح شد که برایم بسیار آموزنده بود. از جمله، تأکید جدی بر اهمیت ایجاد فضای امن برای حضور بانوان در محیط‌های کاری و نیز نقش کلیدی مهارت‌های کار تیمی در موفقیت حرفه‌ای.\n\nهمچنین، دکتر داورپور به نکته‌ی مهمی اشاره کردند که در ذهنم ماندگار شد: «پایتون، صرفاً یک ابزار کاربردی در کار ماست؛ اما دانش پایتون به معنای تسلط کامل بر حوزه‌ی هوش مصنوعی نیست. آنچه اهمیت دارد، حفظ انگیزه و توانایی در یادگیری مستمر و ادامه‌ی مسیر است.» این جمله برایم یادآور شد که مسیر یادگیری در این حوزه هرگز متوقف نمی‌شود و همواره نیاز به به‌روزرسانی دانش و توسعه مهارت‌ها وجود دارد.` },
+                 { name: "الیاس نجفی", memory: `من قبل از اینکه وارد هماره بشم، خیلی دنبال کار و کارآموزی گشتم. حتی یک روز تاکسی گرفتم و رفتم شهرک صنعتی و با مسئول چند تا از کارخونه ها صحبت کردم ولی به در بسته خوردم. در کمال نا امیدی خیلی اتفاقی توسط آقای قدس مسول تیم هوش مصنوعی با شرکت آشنا شدم و اون روزی که اومدم برای مصاحبه دکتر داور پور بر خلاف اون چیزی که از رئیس یک شرکت انتظار داشتم، خیلی مهربون و خوش اخلاق با من برخورد کرد\n\nخیلی دوستانه گپ زدیم و در مورد شرایط کار صحبت کردیم و خیلی به من حس خوبی منتقل شد.\n\n و از طرفی هم دکتر بهم این فرصت رو دادن که بتونم توی حوزه ای که بهش علاقه مند هستم کار کنم و ازین بابت لطف ایشون رو فراموش نمیکنم.` },
+                 { name: "مهدی اخلاقی", memory: `خاطره ای که دارم میگم مربوط به زمانیه که من داشتم پروژه فاینال مقطع کاردانی رو انجام می دادم که طراحی یک وب سایت برای آموزشگاهی بود.\nکار رو با پی اچ پی، جاوا اسکریپت و css قرار بود انجام بدم.\nالبته تنها هم نبودم.\nیه دو سه نفری با همدیگه بودیم.\nیک جایی از پروژه من به یک نقطه ای خوردم که چالش شده بود برام که باید یک عددی رو که توی یک رشته ای جا شده بود به حالت عددی میبردم.\nچند روز واقعا زمان گذاشته بودم برای اینکه بتونم این تبدیل فرمت رو انجام بدم.\nخب اون موقع ها چیز دیگه هم جی پی تی و اینترنت و اینها نبود.\nخیلی زمان زیادی گذاشته بودم.\nآخر دیگه مجبور شدم.\nزنگ زدم به استاد گفتم که من خیلی تلاش کردم.\nنتونستم و نمی دونم باید چی کار کنم.\nایشون به جای اینکه جواب رو به من بده شروع کرد به دادن راه حل ها و راه حل ها.\nخیلی برام جذاب بود که به جای اینکه بیاد مستقیم بگه که این کار رو بکنی به جواب میرسی.\nراه حل هایی داد و مثلا کمک کرد به من که بتونم ذهنم از این به بعد یاد بگیره چه جوری باید فکر کنم و جواب ها رو به دست بیارم.\nجوابش هم این بود که باید اون عدد رو ضرب در یک میکردم.\nفرمت رشته ضرب در یک میشد به فرمت عددی تبدیل میشد توی اون زبان برنامه نویسی.` },
+                 { name: "اسماعیل شعبان خطیب", memory: `ترم یک بودم که پیگیر موضوع برای بردن بچه های انجمن به نمایشگاه الکامپ شدم. دکتر خیلی پیگیری کردند تا وسیله نقلیه ای برای انجمن مهندسی کامپیوتر دانشگاه سمنان فراهم شود ولی نشد که نشد. آخر سر دکتر دیدند که چجور من دارم پیگیری میکنم با ماشین خودشون به نمایشگاه الکامپ رفتیم و من کلی چیز از دکتر یاد گرفتم.` },
+                 { name: "محمد پهلوانیان", memory: `به یاد روزهای ترم دوم دانشگاه و کلاس «برنامه‌نویسی پیشرفته» در کلاس ۳۱۶، شما روی تخته مفهوم توابع بازگشتی را توضیح می‌دادید. در آن روز من به‌خاطر تأخیر مجبور شدم در آخرین ردیف بنشینم؛ جایی بسیار دور از صندلی همیشگی‌ام در ردیف اول که معتقدم بهترین نقطه برای یادگیری و پرسش است در اکثر کلاس هاست.
+
+در حالی که شما مشغول تدریس بودید، ذهنم درگیر مسئله‌ای شد و آن را با همکلاسی کناری‌ام در میان گذاشتم؛ او هم مثل من درگیر مفهوم بود و پاسخی برایم نداشت. اما به شکفتگی دیدم که شما پس از تکمیل صحبتتون، به سمت آخرین ردیف برگشتید و با دقت تمام به سؤال من پاسخ دادید؛ چنان‌که گویی فاصلهٔ محل نشستن اصلاً اهمیتی نداشت.
+
+از آن پس فهمیدم که در کلاس درس شما همیشه به تمامی دانشجویان توجه میشود. مهم نیست چقدر دور باشیم؛ مهم آن است که چه چیزی می‌جوییم و چه پرسشی در ذهن داریم.` }
+             ];
+
+            const formattedStudentMemories = studentsData.map(student => (
+                `**${student.name}**: ${student.memory}`
+            )).join('\n\n');
+
+            // --- دستورالعمل سیستم (برای تولید پیام اول) ---
+            const systemInstructionText = `
+# راهنمای اجرای بازی "حدس بزن دانشجو کیه؟" برای روز معلم
+
+## هویت و نقش شما
+شما نماینده گروهی از دانشجویان دکتر محمد حسین داورپور (استاد رشته کامپیوتر) هستید و مسئول اجرای یک بازی تقدیر ویژه به مناسبت روز معلم برای ایشان هستید که مقداری شوخ طبع هستید..
+
+## نکته مهم درباره شروع بازی
+- پیام اول کاربر با متن "شروع کن" را **نادیده بگیرید**.
+- بلافاصله بازی را با پیام خوشامدگویی و تبریک روز معلم آغاز کنید.
+
+## ساختار پیام اول شما
+1. **سلام و تبریک**: "سلام استاد داورپور عزیز! 👋 روز معلم بر شما مبارک باشه! 👨‍🏫✨"
+2. **معرفی بازی**: توضیح دهید که این یک بازی "حدس بزن دانشجو کیه؟" است - در هر نوبت خاطره‌ای از یک دانشجو (بدون ذکر نام) تعریف می‌کنید و استاد باید حدس بزند.
+3. **قوانین امتیازدهی**: توضیح دهید که:
+   - راهنمایی اول (سطح 0): 3 امتیاز
+   - راهنمایی دوم (سطح 1): 2 امتیاز
+   - راهنمایی سوم (سطح 2): 1 امتیاز
+4. **شروع بازی**: از استاد بپرسید آیا آماده است و بلافاصله اولین راهنمایی (سطح 0) را برای دانشجوی اول (انتخاب شده به صورت تصادفی) ارائه دهید.
+
+## لیست دانشجویان و خاطرات
+${formattedStudentMemories}
+
+## قوانین ادامه بازی
+### برای حدس صحیح:
+- تبریک بگویید و نام دانشجو را با \`<span class="highlight">نام دانشجو</span>\` تأیید کنید
+- امتیاز مربوط به سطح راهنمایی را اعلام کنید
+- امتیاز کل را به‌روز کرده و اعلام کنید
+- خاطره کامل دانشجو را نمایش دهید
+- اعلام کنید به سراغ نفر بعدی می‌روید
+- بلافاصله راهنمایی سطح 0 برای دانشجوی بعدی ارائه دهید
+
+### برای حدس اشتباه:
+- با احترام بگویید اشتباه است
+- اگر سطح راهنمایی کمتر از 2 است، به سطح بعدی بروید و راهنمایی بیشتر دهید
+- اگر در سطح 2 هستید و حدس همچنان اشتباه است:
+  - نام صحیح دانشجو را اعلام کنید
+  - خاطره کامل را بازگو کنید
+  - امتیازی ندهید
+  - به سراغ دانشجوی بعدی بروید و راهنمایی سطح 0 را ارائه دهید
+
+### برای پایان بازی:
+- وقتی تمام دانشجویان حدس زده شدند، بازی را با پیام تبریک نهایی به پایان برسانید
+- امتیاز نهایی را اعلام کنید
+- آرزوی بهترین‌ها کنید
+- اشاره کنید: "منتظر شگفتانه‌های جدید تیم هوش مصنوعی شرکت هوشمند آرمان هماره باشید."
+
+## نکات کلیدی برای اجرای بهتر
+1. **حفظ وضعیت**: همواره از این موارد آگاه باشید:
+   - مرحله فعلی بازی
+   - نوبت کدام دانشجو است
+   - امتیاز فعلی چقدر است
+   - در کدام سطح راهنمایی هستید
+
+2. **قوانین حدس زدن**:
+   - استاد برای هر دانشجو حداکثر 3 فرصت حدس دارد
+   - پس از هر حدس اشتباه، یک راهنمایی بیشتر دریافت می‌کند
+   - حدس فقط با نام خانوادگی هم قابل قبول است
+
+3. **فرمت‌بندی**:
+   - برای برجسته کردن نام‌ها و امتیازات از \`<span class="highlight">...</span>\` استفاده کنید
+   - از ایموجی‌های مناسب برای افزایش جذابیت بازی استفاده کنید
+
+4. **لحن**: همواره مودب، محترمانه، گرم و با اندکی شوخ‌طبعی صحبت کنید
+
+## مثال از یک دور کامل بازی
+1. **راهنمایی سطح 0**: "استاد یادتون میاد دانشجویی که بعد از انصراف از دو رشته دیگه اومد کامپیوتر دانشگاه آزاد؟ 🤔"
+2. **پاسخ استاد**: [حدس]
+3. **اگر صحیح**: "آفرین استاد! خودشه! 👌 درست حدس زدید: <span class="highlight">مهدی قدس</span>. شما 3 امتیاز کسب کردید! امتیاز کل شما: <span class="highlight">3</span>. [خاطره کامل]. حالا بریم سراغ نفر بعدی..."
+4. **اگر اشتباه**: "نه استاد، این دانشجو نبود. یک راهنمایی بیشتر: [راهنمایی سطح 1]"
+
+اکنون، آماده باشید تا با دریافت پیام "شروع کن" از کاربر، بازی را با تبریک، معرفی، قوانین و اولین راهنمایی آغاز کنید.
+`;
+
+            // --- تاریخچه چت (در ابتدا خالی است) ---
+            let messages = [];
+            let isFirstMessageDisplayed = false; // پرچم برای پیگیری نمایش پیام اولیه LLM
+
+            // --- توابع کمکی ---
+            function addMessageToChat(content, isUser) {
+                // پیام اولیه "کاربر" ساختگی را به UI اضافه نکنید
+                if (isUser && content === "شروع کن") {
+                    return;
+                }
+
+                 const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+
+                const avatar = document.createElement('div');
+                avatar.className = 'avatar';
+                avatar.textContent = isUser ? 'شما' : 'دانشجو';
+
+                const messageContent = document.createElement('div');
+                messageContent.className = 'message-content';
+                // اعمال قالب‌بندی: برجسته و هایلایت
+                // ابتدا تگ‌های HTML را موقتاً جایگزین می‌کنیم تا با مارک‌داون تداخل نکنند
+                const highlightPlaceholder = '___HIGHLIGHT___';
+                let tempContent = content.replace(/<span class="highlight">(.*?)<\/span>/g, `${highlightPlaceholder}$1${highlightPlaceholder}`);
+
+                // اعمال مارک‌داون **bold** به <strong>
+                tempContent = tempContent.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+                // بازگرداندن تگ‌های هایلایت
+                const highlightRegex = new RegExp(highlightPlaceholder.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&') + '(.*?)' + highlightPlaceholder.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'g');
+                tempContent = tempContent.replace(highlightRegex, '<span class="highlight">$1</span>');
+
+                // جایگزینی خطوط جدید با <br> برای نمایش HTML
+                messageContent.innerHTML = tempContent.replace(/\n/g, '<br>');
+
+
+                if (isUser) {
+                    messageDiv.appendChild(avatar);
+                    messageDiv.appendChild(messageContent);
+                } else {
+                    messageDiv.appendChild(messageContent);
+                    messageDiv.appendChild(avatar);
+                }
+
+                chatContainer.insertBefore(messageDiv, typingIndicator);
+
+                // منطق اسکرول نیاز به تنظیم برای اولین پیام *واقعی* دارد
+                if (!isFirstMessageDisplayed && !isUser) {
+                     // اولین پیام از LLM (تبریک اولیه)
+                     chatContainer.scrollTop = chatContainer.scrollHeight;
+                     isFirstMessageDisplayed = true; // تنظیم پرچم
+                 } else if (isFirstMessageDisplayed) {
+                     // پیام‌های بعدی
+                      chatContainer.scrollTo({
+                          top: chatContainer.scrollHeight,
+                          behavior: 'smooth'
+                      });
+                 }
+            }
+
+            function setTypingIndicator(isVisible) {
+                 typingIndicator.classList.toggle('visible', isVisible);
+                 if (isVisible) {
+                     // اسکرول به پایین برای نشان دادن نشانگر تایپ فقط در صورت وجود پیام
+                     if(chatContainer.children.length > 1) { // Check if there's more than just the typing indicator placeholder
+                         chatContainer.scrollTo({
+                             top: chatContainer.scrollHeight,
+                             behavior: 'smooth'
+                         });
+                     }
+                }
+            }
+
+             // --- *** تابع فراخوانی API Google AI Gemini (فراخوانی اولیه را مدیریت می‌کند) *** ---
+             async function callGeminiAPI(isInitialCall = false) {
+                 setTypingIndicator(true);
+                 messageInput.disabled = true; // در حین فراخوانی غیرفعال نگه دارید
+                 sendButton.disabled = true;
+
+                 let requestContents;
+                 let historyToSend = []; // تاریخچه برای ارسال به API
+
+                 if (isInitialCall) {
+                     // برای اولین تماس، فقط پیام تریگر ساختگی را ارسال کنید
+                     historyToSend = [{ role: "user", parts: [{ text: "شروع کن" }] }];
+                     // این پیام ساختگی را به تاریخچه اصلی 'messages' اضافه نکنید
+                 } else {
+                     // برای تماس‌های بعدی، از تاریخچه واقعی پیام استفاده کنید
+                     historyToSend = messages.map(msg => ({
+                         role: msg.role,
+                         parts: [{ text: msg.content }]
+                     }));
+                 }
+
+                 // ساختار درخواست
+                 const requestBody = {
+                     contents: historyToSend, // از historyToSend استفاده کنید
+                     systemInstruction: {
+                         parts: [{ text: systemInstructionText }]
+                     },
+                     generationConfig: {
+                         temperature: 0.7, // کمی خلاقیت
+                         topP: 0.95,
+                         maxOutputTokens: 1024, // کمی بیشتر برای پاسخ‌های طولانی‌تر احتمالی
+                     },
+                     safetySettings: [ // تنظیمات ایمنی (مثال - در صورت نیاز تنظیم کنید)
+                       { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_MEDIUM_AND_ABOVE" },
+                       { category: "HARM_CATEGORY_HATE_SPEECH", threshold: "BLOCK_MEDIUM_AND_ABOVE" },
+                       { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "BLOCK_MEDIUM_AND_ABOVE" },
+                       { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_MEDIUM_AND_ABOVE" }
+                     ]
+                 };
+
+                 // URL API
+                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GOOGLE_AI_API_KEY}`;
+
+                 try {
+                     const response = await fetch(apiUrl, {
+                         method: 'POST',
+                         headers: {
+                             'Content-Type': 'application/json',
+                         },
+                         body: JSON.stringify(requestBody)
+                     });
+
+                     const responseData = await response.json(); // همیشه سعی کنید پاسخ را بخوانید
+
+                     if (!response.ok) {
+                         const errorDetails = responseData?.error?.message || `HTTP error! status: ${response.status}`;
+                         console.error("Gemini API Error Response:", responseData);
+                         throw new Error(`خطای API (${response.status}): ${errorDetails}`);
+                     }
+
+
+                     // بررسی ساختار پاسخ معتبر و بلوک‌های ایمنی
+                      if (!responseData.candidates || responseData.candidates.length === 0) {
+                          // بررسی فیدبک پرامپت برای دلایل بلوک شدن
+                          if (responseData.promptFeedback?.blockReason) {
+                               throw new Error(`درخواست مسدود شد: ${responseData.promptFeedback.blockReason}. جزئیات: ${JSON.stringify(responseData.promptFeedback.safetyRatings)}`);
+                          } else {
+                               console.error("Invalid/Empty response structure:", responseData);
+                               throw new Error("پاسخ نامعتبر (ساختار خالی یا بدون کاندیدا).");
+                          }
+                      }
+
+                     const candidate = responseData.candidates[0];
+
+                      // بررسی دلایل اتمام دیگر به جز ایمنی
+                     if (candidate.finishReason && candidate.finishReason !== 'STOP' && candidate.finishReason !== 'MAX_TOKENS') {
+                         console.warn(`Gemini Finish Reason: ${candidate.finishReason}`);
+                         // ممکن است بخواهید در اینجا خطا ایجاد کنید یا فقط هشدار دهید
+                     }
+
+                     // بررسی بلوک ایمنی در کاندیدا
+                     if (candidate.finishReason === 'SAFETY') {
+                          const safetyRatings = candidate?.safetyRatings?.map(r => `${r.category}: ${r.probability}`).join(', ') || 'نامشخص';
+                          console.error("Safety Block Details:", candidate?.safetyRatings);
+                          throw new Error(`پاسخ مسدود شد (ایمنی). جزئیات: ${safetyRatings}`);
+                      }
+
+                     // بررسی وجود محتوا
+                     if (!candidate.content || !candidate.content.parts || candidate.content.parts.length === 0 || !candidate.content.parts[0].text) {
+                          console.error("Invalid response content:", responseData);
+                           throw new Error("پاسخ نامعتبر (محتوای خالی یا فرمت نادرست).");
+                      }
+
+
+                     // استخراج پاسخ ربات
+                     const botResponse = candidate.content.parts[0].text;
+
+                     // اضافه کردن پاسخ *واقعی* ربات به تاریخچه اصلی
+                     messages.push({
+                         role: "model", // نقش صحیح برای پاسخ LLM
+                         content: botResponse
+                     });
+
+                     // نمایش پاسخ ربات در UI
+                     addMessageToChat(botResponse, false);
+
+                     // فعال کردن ورودی فقط پس از اولین پیام موفق از LLM
+                     if (!messageInput.disabled) { // فقط اگر قبلا فعال نشده بود
+                         messageInput.disabled = false;
+                         sendButton.disabled = false;
+                         if (isFirstMessageDisplayed) messageInput.focus(); // فوکوس بعد از بارگذاری اولیه
+                     }
+
+
+                 } catch (error) {
+                     console.error('Error calling Gemini API:', error);
+                     addMessageToChat(`متأسفانه مشکلی در ارتباط با هوش مصنوعی پیش آمد: ${error.message} <br> لطفاً صفحه را رفرش کنید یا دوباره تلاش کنید. 🌱`, false);
+                     // ورودی را در صورت خطا در تماس اولیه غیرفعال نگه دارید
+                     if (isInitialCall) {
+                         messageInput.disabled = true;
+                         sendButton.disabled = true;
+                     } else {
+                         // برای خطاهای بعدی، ورودی را دوباره فعال کنید
+                         messageInput.disabled = false;
+                         sendButton.disabled = false;
+                     }
+                 } finally {
+                     setTypingIndicator(false);
+                     // اطمینان حاصل کنید که ورودی برای تماس‌های بعدی فعال است
+                     // (اگر قبلاً در بلوک try فعال نشده باشد)
+                     if (!isInitialCall && messageInput.disabled) {
+                          messageInput.disabled = false;
+                          sendButton.disabled = false;
+                          messageInput.focus();
+                     } else if (isInitialCall && isFirstMessageDisplayed) {
+                        // اگر تماس اولیه بود و موفقیت آمیز، فعال کن
+                         messageInput.disabled = false;
+                         sendButton.disabled = false;
+                         messageInput.focus();
+                     }
+                 }
+             } // --- *** پایان تابع فراخوانی API Google AI Gemini *** ---
+
+
+            // --- کنترل‌کننده‌های رویداد ---
+            function handleSendMessage() {
+                const userMessage = messageInput.value.trim();
+                 // بررسی کنید که ورودی فعال است و پیام وجود دارد
+                if (userMessage && !messageInput.disabled) {
+                    // 1. اضافه کردن پیام کاربر به UI
+                    addMessageToChat(userMessage, true);
+
+                    // 2. اضافه کردن پیام کاربر به تاریخچه واقعی
+                    messages.push({
+                        role: "user",
+                        content: userMessage
+                    });
+
+                    // 3. پاک کردن ورودی و تغییر اندازه
+                    messageInput.value = '';
+                    messageInput.style.height = 'auto'; // بازنشانی ارتفاع برای محاسبه مجدد
+
+                    // 4. فراخوانی API (فراخوانی اولیه نیست)
+                    callGeminiAPI(false);
+                }
+            }
+
+            sendButton.addEventListener('click', handleSendMessage);
+
+            messageInput.addEventListener('keypress', (e) => {
+                // ارسال با Enter، مگر اینکه Shift+Enter فشرده شود
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault(); // جلوگیری از ایجاد خط جدید در textarea
+                    handleSendMessage();
+                }
+            });
+
+            // تغییر اندازه خودکار textarea بر اساس محتوا
+            messageInput.addEventListener('input', () => {
+                 messageInput.style.height = 'auto'; // ابتدا ارتفاع را بازنشانی کنید
+                 // ارتفاع را بر اساس scrollHeight تنظیم کنید، اما از max-height تجاوز نکند
+                 messageInput.style.height = `${Math.min(messageInput.scrollHeight, 100)}px`;
+             });
+
+             // --- راه‌اندازی اولیه ---
+             // API را فراخوانی کنید تا اولین پیام تولید شده توسط LLM دریافت شود
+             callGeminiAPI(true);
+             // ورودی غیرفعال می‌ماند تا پیام اولیه دریافت و نمایش داده شود
+
+        }); // انتهای listener DOMContentLoaded
+    </script>
+
+</body>
+</html>
